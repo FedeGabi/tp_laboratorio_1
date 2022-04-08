@@ -22,7 +22,8 @@
 
 int main()
 {
-    float kilometraje=0;
+	setbuf(stdout, NULL);
+	float kilometraje=0;
     float precioAero=0;
     float precioLatam=0;
     float resultadoDescuentoAero;
@@ -263,5 +264,5 @@ int main()
                 break;
         }
     }while(opcion>0 && opcion<6);
-    return 0;
+    return EXIT_SUCCESS ;
 }
