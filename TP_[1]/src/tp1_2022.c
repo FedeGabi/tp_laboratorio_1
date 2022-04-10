@@ -189,10 +189,10 @@ int main()
                     {
                         printf("KMs Ingresados: %.2f\n\n", kilometraje);
                     }
-                    mostrarPrecios(kilometraje,precioAero,flagDescontoAero, flagInteresAero, flagCalculoBtcAero, flagUnitarioAero,
+                    informarResultados(kilometraje,precioAero,flagDescontoAero, flagInteresAero, flagCalculoBtcAero, flagUnitarioAero,
                                    resultadoDescuentoAero, resultadoInteresAero, resultadoBtcAero, precioUnitarioAero, "Aerolineas");
                     printf("\n");
-                    mostrarPrecios(kilometraje,precioLatam,flagDescontoLatam, flagInteresLatam, flagCalculoBtcLatam, flagUnitarioLatam,
+                    informarResultados(kilometraje,precioLatam,flagDescontoLatam, flagInteresLatam, flagCalculoBtcLatam, flagUnitarioLatam,
                                    resultadoDescuentoLatam, resultadoInteresLatam, resultadoBtcLatam, precioUnitarioLatam,"Latam");
                     if(flagDiferenciaRes)
                     {
@@ -216,10 +216,10 @@ int main()
                 calcularPrecioUnitario(precioLatam,kilometraje, &precioUnitarioLatam);
                 diferenciaPrecio(precioAero,precioLatam, &diferenciaResultado);
                 printf("KMs Ingresados: %.2f\n\n", kilometraje);
-                mostrarPrecios(kilometraje,precioAero,flagDescontoAero, flagInteresAero, flagCalculoBtcAero, flagUnitarioAero,
+                informarResultados(kilometraje,precioAero,flagDescontoAero, flagInteresAero, flagCalculoBtcAero, flagUnitarioAero,
                                resultadoDescuentoAero, resultadoInteresAero, resultadoBtcAero, precioUnitarioAero, "Aerolineas");
                 printf("\n");
-                mostrarPrecios(kilometraje,precioLatam,flagDescontoLatam, flagInteresLatam, flagCalculoBtcLatam, flagUnitarioLatam,
+                informarResultados(kilometraje,precioLatam,flagDescontoLatam, flagInteresLatam, flagCalculoBtcLatam, flagUnitarioLatam,
                                resultadoDescuentoLatam, resultadoInteresLatam, resultadoBtcLatam, precioUnitarioLatam,"Latam");
                 printf("\ne) La diferencia de precio es: %.2f\n\n", diferenciaResultado);
                 hardcodearBanderas(&flagDescontoAero, &flagDescontoLatam, &flagInteresAero, &flagInteresLatam,

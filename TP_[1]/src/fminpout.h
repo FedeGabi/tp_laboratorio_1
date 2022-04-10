@@ -94,4 +94,4 @@ int hardcodearBanderas(int* des1, int* des2, int* inter1, int* inter2, int* btc1
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
-int mostrarPrecios(float km, float precio, int desc, int inter, int btc, int uni,float rDesc, float rInt, float rBtc, float rUni, char mensaje[]);
+int informarResultados(float km, float precio, int desc, int inter, int btc, int uni,float rDesc, float rInt, float rBtc, float rUni, char mensaje[]);
