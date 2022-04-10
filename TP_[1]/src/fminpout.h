@@ -25,21 +25,21 @@ int ingresarCifra(float* pCifra);
 /** \brief muestra un menu principal y se pide el ingreso de una de las opciones
  *
  * \param pKilometraje float numero recibido que se muestra en el menu
+ * \param aerolineas float recibe valor aerolineas
+ * \param latam float recibe valor latam
  * \return int retorna el valor elegido en el menu
  *
  */
-int mostrarMenuPrincipal(float pKilometraje);
+int mostrarMenuPrincipal(float Kilometraje, float aerolineas, float latam);
 
 
 
 /** \brief muestra un submenu con dos opciones
  *
- * \param aerolineas float recibe un flotante como parametro y este se muestra en el menu
- * \param latam float recibe un flotante como parametro y este se muestra en el menu
  * \return int retorna la opcion elegida
  *
  */
-int mostrarSubmenuPrecios(float aerolineas, float latam);
+int mostrarSubmenuPrecios();
 
 
 /** \brief muestra un menu de costos y se pide ingreso de una de las opciones

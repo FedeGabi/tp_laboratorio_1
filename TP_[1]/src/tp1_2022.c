@@ -46,7 +46,7 @@ int main()
     int flagDiferenciaRes=0;
     int opcion;
     do{
-        opcion=mostrarMenuPrincipal(kilometraje);
+        opcion=mostrarMenuPrincipal(kilometraje,precioAero,precioLatam);
         switch(opcion)
         {
             case 1:
@@ -54,7 +54,7 @@ int main()
                 ingresarCifra(&kilometraje);
                 break;
             case 2:
-                switch(mostrarSubmenuPrecios(precioAero, precioLatam))
+                switch(mostrarSubmenuPrecios())
                 {
                     case 1:
                         printf("- Ingresar precio Aerolineas: ");

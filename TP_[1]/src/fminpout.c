@@ -34,7 +34,7 @@ int ingresarCifra(float* pCifra)
     return retorno;
 }
 
-int mostrarMenuPrincipal(float pKilometraje)
+int mostrarMenuPrincipal(float Kilometraje, float aerolineas, float latam)
 {
     float opcion;
     system("cls");
@@ -42,8 +42,8 @@ int mostrarMenuPrincipal(float pKilometraje)
     printf("   **************************************\n");
     printf("   ********* AGENCIA DE VIAJES **********\n");
     printf("   **************************************\n\n");
-    printf("  1. INGRESAR KILOMETROS (Km = %.2f)\n",pKilometraje);
-    printf("  2. INGRESAR PRECIO DE VUELOS\n");
+    printf("  1. INGRESAR KILOMETROS (Km = %.2f)\n",Kilometraje);
+    printf("  2. INGRESAR PRECIO DE VUELOS   ||  Aerolineas = $ %.2f || Latam = $ %.2f  ||\n", aerolineas, latam);
     printf("  3. CALCULAR TODOS LOS COSTOS\n");
     printf("  4. INFORMAR RESULTADOS\n");
     printf("  5. CARGA FORZADA DE DATOS\n");
@@ -52,13 +52,12 @@ int mostrarMenuPrincipal(float pKilometraje)
     return opcion;
 }
 
-int mostrarSubmenuPrecios(float aerolineas, float latam)
+int mostrarSubmenuPrecios()
 {
     int opcion=0;
     system("cls");
     printf("\n");
     printf("   ******* INGRESAR PRECIO DE VUELOS *******\n");
-    printf("\n       (Aerolineas = %.2f, Latam = %.2f)\n\n", aerolineas, latam);
     printf("  1. PRECIO VUELO AEROLINEAS\n");
     printf("  2. PRECIO VUELO LATAM\n");
     printf("  3. MENU ANTERIOR\n");
