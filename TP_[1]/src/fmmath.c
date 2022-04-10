@@ -47,13 +47,13 @@ int calcularBtc(float monto, float valorUnBtc, float* pResultado)
 
 int diferenciaPrecio(float monto1, float monto2, float* pResultado)
 {
-    int retorno=-1;
-    if(pResultado!=NULL && monto1>0 && monto2>0)
+    int retorno=0;
+    if(pResultado!=NULL && monto1>=0 && monto2>=0)
     {
         if(monto1>monto2)
         {
            *pResultado=monto1-monto2;
-           retorno=0;
+           retorno=1;
         }
         else{
             if(monto1<monto2)

@@ -70,7 +70,7 @@ int main()
                 if(!precioAero && !precioLatam)
                 {
                     system("cls");
-                    printf("NO SE INGRESARON PRECIOS\n");
+                    printf("   *** NO SE INGRESARON PRECIOS, IMPOSIBLE CALCULAR ***\n");
                     system("pause");
                     break;
                 }
@@ -168,15 +168,11 @@ int main()
                             }
                             break;
                         case 'e':
-                            if(precioAero || precioLatam)
+                            if(diferenciaPrecio(precioAero,precioLatam, &diferenciaResultado))
                             {
-                                diferenciaPrecio(precioAero,precioLatam, &diferenciaResultado);
                                 flagDiferenciaRes=1;
                             }
-                            else{
-                                printf("NO SE INGRESARON PRECIOS A CALCULAR\n");
-                                system("pause");
-                            }
+                            break;
                     }
                     break;
             case 4:
@@ -184,7 +180,7 @@ int main()
                 if(!precioAero && !precioLatam)
                 {
                     system("cls");
-                    printf("NO SE INGRESARON PRECIOS\n");
+                    printf("   *** IMPOSIBLE MOSTRAR CALCULOS, NO EXISTEN CALCULOS REGISTRADOS ***\n");
                     system("pause");
                     break;
                 }
