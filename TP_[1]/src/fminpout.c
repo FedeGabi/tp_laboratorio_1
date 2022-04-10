@@ -9,35 +9,22 @@
 #define INTERES 25
 #define ARSBTC 4606954.55
 #include "fminpout.h"
-int mostrarMenuPrincipal(float kilometraje)
-{
-    int opcion;
-    system("cls");
-    printf("\n");
-    printf("   **************************************\n");
-    printf("   ********* AGENCIA DE VIAJES **********\n");
-    printf("   **************************************\n\n");
-    printf("  1. INGRESAR KILOMETROS (Km = %.2f)\n",kilometraje);
-    printf("  2. INGRESAR PRECIO DE VUELOS\n");
-    printf("  3. CALCULAR TODOS LOS COSTOS\n");
-    printf("  4. INFORMAR RESULTADOS\n");
-    printf("  5. CARGA FORZADA DE DATOS\n");
-    printf("  6. SALIR\n");
-    scanf("%d",&opcion);
-    return opcion;
-}
-
 int ingresarCifra(float* pCifra)
 {
     int retorno=-1;
     if(pCifra!=NULL)
     {
         float numero;
-        printf(" ingrese cifra: ");
-        scanf("%f",&numero);
-        if(numero<0)
+        int esNum;
+        esNum=scanf("%f",&numero);
+        fflush(stdin);
+        if(numero<0 || !esNum)
         {
-           retorno=0;
+            system("cls");
+            printf("               *** ERROR ***\n");
+            printf("NO SE ADMITEN CARACTERES O NUMEROS NEGATIVOS\n\n");
+            system("pause");
+            *pCifra=esNum;
         }
         else{
             *pCifra=numero;
@@ -47,12 +34,30 @@ int ingresarCifra(float* pCifra)
     return retorno;
 }
 
+int mostrarMenuPrincipal(float pKilometraje)
+{
+    float opcion;
+    system("cls");
+    printf("\n");
+    printf("   **************************************\n");
+    printf("   ********* AGENCIA DE VIAJES **********\n");
+    printf("   **************************************\n\n");
+    printf("  1. INGRESAR KILOMETROS (Km = %.2f)\n",pKilometraje);
+    printf("  2. INGRESAR PRECIO DE VUELOS\n");
+    printf("  3. CALCULAR TODOS LOS COSTOS\n");
+    printf("  4. INFORMAR RESULTADOS\n");
+    printf("  5. CARGA FORZADA DE DATOS\n");
+    printf("  6. SALIR\n");
+    ingresarCifra(&opcion);
+    return opcion;
+}
+
 int mostrarSubmenuPrecios(float aerolineas, float latam)
 {
     int opcion=0;
     system("cls");
     printf("\n");
-     printf("   ******* INGRESAR PRECIO DE VUELOS *******\n");
+    printf("   ******* INGRESAR PRECIO DE VUELOS *******\n");
     printf("\n       (Aerolineas = %.2f, Latam = %.2f)\n\n", aerolineas, latam);
     printf("  1. PRECIO VUELO AEROLINEAS\n");
     printf("  2. PRECIO VUELO LATAM\n");
@@ -91,43 +96,63 @@ int cargaForzada(float* pKilometros, float* pPrecioAero, float* pPrecioLatam)
     return retorno;
 }
 
-int mostrarResultadosF(float kilometros, float precioAerolineas, float precioLatamLatam)
+int hardcodearBanderas(int* des1, int* des2, int* inter1, int* inter2, int* btc1, int* btc2, int* uni1, int* uni2, int argumento)
 {
-    system("cls");
     int retorno=0;
-    if(kilometros>0 && precioLatamLatam>0 && precioAerolineas>0)
+    if(des1!=NULL && des2!=NULL && inter1!=NULL && inter2!=NULL && btc1!=NULL && inter2!=NULL && uni1!=NULL && uni2!=NULL)
     {
-        float resultadoDescuentoAero;
-        float resultadoDescuentoLatam;
-        float resultadoInteresAero;
-        float resultadoInteresLatam;
-        float resultadoBtcAero;
-        float resultadoBtcLatam;
-        float precioUnitarioAero;
-        float precioUnitarioLatam;
-        float diferenciaResultado;
-        calcularDescuento(precioAerolineas,DESCUENTO,&resultadoDescuentoAero);
-        calcularInteres(precioAerolineas, INTERES, &resultadoInteresAero);
-        calcularBtc(precioAerolineas, ARSBTC, &resultadoBtcAero);
-        calcularPrecioUnitario(precioAerolineas, kilometros, &precioUnitarioAero);
-        calcularDescuento(precioLatamLatam,DESCUENTO,&resultadoDescuentoLatam);
-        calcularInteres(precioLatamLatam, INTERES, &resultadoInteresLatam);
-        calcularBtc(precioLatamLatam, ARSBTC, &resultadoBtcLatam);
-        calcularPrecioUnitario(precioLatamLatam, kilometros, &precioUnitarioLatam);
-        printf("KMs Ingresados: %.2f\n\n",kilometros);
-        printf("Precio Aerolineas: $%.2f \n", precioAerolineas);
-        printf("a) Precio con tarjeta de debito: $%.2f\n", resultadoDescuentoAero);
-        printf("b) Precio con tarjeta de credito: $%.2f\n", resultadoInteresAero);
-        printf("c) Precio pagando con Bitcoin: %.4f\n", resultadoBtcAero);
-        printf("d) Mostrar precio unitario: $%.2f\n\n", precioUnitarioAero);
-        printf("Precio Latam: $%.2f \n", precioLatamLatam);
-        printf("a) Precio con tarjeta de debito: $%.2f\n", resultadoDescuentoLatam);
-        printf("b) Precio con tarjeta de credito: $%.2f\n", resultadoInteresLatam);
-        printf("c) Precio pagando con Bitcoin: %.4f\n", resultadoBtcLatam);
-        printf("d) Mostrar precio unitario: $%.2f\n\n", precioUnitarioLatam);
-        diferenciaPrecio(precioAerolineas,precioLatamLatam, &diferenciaResultado);
-        printf("e) La diferencia de precio es: %.2f\n\n", diferenciaResultado);
+        if(argumento==1)
+        {
+            *des1=1;
+            *des2=1;
+            *inter1=1;
+            *inter2=1;
+            *btc1=1;
+            *btc2=1;
+            *uni1=1;
+            *uni2=1;
+        }
+        else if(argumento==0)
+            {
+            *des1=0;
+            *des2=0;
+            *inter1=0;
+            *inter2=0;
+            *btc1=0;
+            *btc2=0;
+            *uni1=0;
+            *uni2=0;
+        }
         retorno=1;
     }
     return retorno;
 }
+
+int mostrarPrecios(float km, float precio, int desc, int inter,
+                   int btc, int uni,float rDesc, float rInt, float rBtc, float rUni, char mensaje[])
+{
+    int retorno=0;
+    if(precio)
+    {
+        printf("Precio %s es: $%.2f\n",mensaje, precio);
+        if(desc)
+        {
+            printf("a) Precio con tarjeta de debito: $%.2f\n", rDesc);
+        }
+        if(inter)
+        {
+            printf("b) Precio con tarjeta de credito: $%.2f\n", rInt);
+        }
+        if(btc)
+        {
+            printf("c) Precio pagando con Bitcoin: %.4f\n", rBtc);
+        }
+        if(uni)
+        {
+            printf("d) Mostrar precio unitario: $%.2f\n", rUni);
+        }
+        retorno =1;
+    }
+    return retorno;
+}
+

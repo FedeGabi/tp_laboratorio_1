@@ -22,8 +22,8 @@
 
 int main()
 {
-	setbuf(stdout, NULL);
-	float kilometraje=0;
+    setbuf(stdout, NULL);
+    float kilometraje=0;
     float precioAero=0;
     float precioLatam=0;
     float resultadoDescuentoAero;
@@ -50,35 +50,19 @@ int main()
         switch(opcion)
         {
             case 1:
-                printf("- Kilometros,");
-                if(!ingresarCifra(&kilometraje))
-                {
-                    system("cls");
-                    printf("ERROR. NO SE ADMITEN VALORES NEGATIVOS\n");
-                    system("pause");
-                    break;
-                }
+                printf("- Ingresar kilometros: ");
+                ingresarCifra(&kilometraje);
                 break;
             case 2:
                 switch(mostrarSubmenuPrecios(precioAero, precioLatam))
                 {
                     case 1:
-                        printf("- Precio Aerolineas,");
-                        if(!ingresarCifra(&precioAero))
-                        {
-                            system("cls");
-                            printf("ERROR. NO SE ADMITEN VALORES NEGATIVOS\n");
-                            system("pause");
-                        }
+                        printf("- Ingresar precio Aerolineas: ");
+                        ingresarCifra(&precioAero);
                         break;
                     case 2:
-                        printf("- Precio Latam,");
-                        if(!ingresarCifra(&precioLatam))
-                        {
-                            system("cls");
-                            printf("ERROR. NO SE ADMITEN VALORES NEGATIVOS\n");
-                            system("pause");
-                        }
+                        printf("- Ingresar precio Latam: ");
+                        ingresarCifra(&precioLatam);
                         break;
                 }
                 break;
@@ -156,7 +140,8 @@ int main()
                             if(!kilometraje)
                             {
                                 system("cls");
-                                printf("   *** NO SE PUEDE CALCULAR EL PRECIO UNITARIO, NO SE HA INGRESADO KILOMETROS***\n");
+                                printf("                          *** ERROR ***\n");
+                                printf("   *** PARA CALCULAR EL PRECIO UNITARIO SE DEBE INGRESAR KILOMETROS***\n");
                                 printf("   *** DESEA INGRESARLO AHORA? (S o N)***\n");
                                 char aux;
                                 fflush(stdin);
@@ -164,7 +149,7 @@ int main()
                                 aux=tolower(aux);
                                 if(aux =='s')
                                 {
-                                    printf("- Kilometros,");
+                                    printf("- Ingresar kilometros,");
                                     ingresarCifra(&kilometraje);
                                 }
                                 break;
@@ -195,6 +180,7 @@ int main()
                     }
                     break;
             case 4:
+                system("cls");
                 if(!precioAero && !precioLatam)
                 {
                     system("cls");
@@ -202,67 +188,53 @@ int main()
                     system("pause");
                     break;
                 }
-                system("cls");
-                if(kilometraje && (precioAero || precioLatam))
-                {
-                    printf("KMs Ingresados: %.2f\n\n", kilometraje);
+                else{
+                    if(kilometraje && (precioAero || precioLatam))
+                    {
+                        printf("KMs Ingresados: %.2f\n\n", kilometraje);
+                    }
+                    mostrarPrecios(kilometraje,precioAero,flagDescontoAero, flagInteresAero, flagCalculoBtcAero, flagUnitarioAero,
+                                   resultadoDescuentoAero, resultadoInteresAero, resultadoBtcAero, precioUnitarioAero, "Aerolineas");
+                    printf("\n");
+                    mostrarPrecios(kilometraje,precioLatam,flagDescontoLatam, flagInteresLatam, flagCalculoBtcLatam, flagUnitarioLatam,
+                                   resultadoDescuentoLatam, resultadoInteresLatam, resultadoBtcLatam, precioUnitarioLatam,"Latam");
+                    if(flagDiferenciaRes)
+                    {
+                        printf("\nLa diferencia de precio es: $%.2f\n\n", diferenciaResultado);
+                    }
+                    system("pause");
                 }
-                if(precioAero)
-                {
-                    printf("Precio Aerolineas: $%.2f\n", precioAero);
-                    if(flagDescontoAero)
-                    {
-                        printf("a) Precio con tarjeta de debito: $%.2f\n", resultadoDescuentoAero);
-                    }
-                    if(flagInteresAero)
-                    {
-                        printf("b) Precio con tarjeta de credito: $%.2f\n", resultadoInteresAero);
-                    }
-                    if(flagCalculoBtcAero)
-                    {
-                        printf("c) Precio pagando con Bitcoin: %.4f\n", resultadoBtcAero);
-                    }
-                    if(flagUnitarioAero)
-                    {
-                        printf("d) Mostrar precio unitario: $%.2f\n", precioUnitarioAero);
-                    }
-                }
-                printf("\n");
-               if(precioLatam)
-                {
-                    printf("Precio Latam: $%.2f\n", precioLatam);
-                    if(flagDescontoLatam)
-                    {
-                        printf("a) Precio con tarjeta de debito: $%.2f\n", resultadoDescuentoLatam);
-                    }
-                    if(flagInteresLatam)
-                    {
-                        printf("b) Precio con tarjeta de credito: $%.2f\n", resultadoInteresLatam);
-                    }
-                    if(flagCalculoBtcLatam)
-                    {
-                        printf("c) Precio pagando con Bitcoin: %.4f\n", resultadoBtcLatam);
-                    }
-                    if(flagUnitarioLatam)
-                    {
-                        printf("d) Mostrar precio unitario: $%.2f\n", precioUnitarioLatam);
-                    }
-                }
-                printf("\n");
-                if(flagDiferenciaRes)
-                {
-                    printf("La diferencia de precio es: $%.2f\n\n", diferenciaResultado);
-                }
-                system("pause");
                 break;
             case 5:
+                system("cls");
                 cargaForzada(&kilometraje,&precioAero,&precioLatam);
-                mostrarResultadosF(kilometraje,precioAero,precioLatam);
+                hardcodearBanderas(&flagDescontoAero, &flagDescontoLatam, &flagInteresAero, &flagInteresLatam,
+                                    &flagCalculoBtcAero, &flagCalculoBtcLatam, &flagUnitarioAero, &flagUnitarioLatam, 1);
+                calcularDescuento(precioAero,DESCUENTO,&resultadoDescuentoAero);
+                calcularDescuento(precioLatam,DESCUENTO,&resultadoDescuentoLatam);
+                calcularInteres(precioAero,INTERES,&resultadoInteresAero);
+                calcularInteres(precioLatam,INTERES,&resultadoInteresLatam);
+                calcularBtc(precioAero,ARSBTC,&resultadoBtcAero);
+                calcularBtc(precioLatam,ARSBTC,&resultadoBtcLatam);
+                calcularPrecioUnitario(precioAero,kilometraje, &precioUnitarioAero);
+                calcularPrecioUnitario(precioLatam,kilometraje, &precioUnitarioLatam);
+                diferenciaPrecio(precioAero,precioLatam, &diferenciaResultado);
+                printf("KMs Ingresados: %.2f\n\n", kilometraje);
+                mostrarPrecios(kilometraje,precioAero,flagDescontoAero, flagInteresAero, flagCalculoBtcAero, flagUnitarioAero,
+                               resultadoDescuentoAero, resultadoInteresAero, resultadoBtcAero, precioUnitarioAero, "Aerolineas");
+                printf("\n");
+                mostrarPrecios(kilometraje,precioLatam,flagDescontoLatam, flagInteresLatam, flagCalculoBtcLatam, flagUnitarioLatam,
+                               resultadoDescuentoLatam, resultadoInteresLatam, resultadoBtcLatam, precioUnitarioLatam,"Latam");
+                printf("\ne) La diferencia de precio es: %.2f\n\n", diferenciaResultado);
+                hardcodearBanderas(&flagDescontoAero, &flagDescontoLatam, &flagInteresAero, &flagInteresLatam,
+                                    &flagCalculoBtcAero, &flagCalculoBtcLatam, &flagUnitarioAero, &flagUnitarioLatam, 0);
                 system("pause");
                 break;
             case 6:
                 break;
+            default:
+                break;
         }
-    }while(opcion>0 && opcion<6);
-    return EXIT_SUCCESS ;
+    }while(opcion>=0 && opcion<6);
+    return EXIT_SUCCESS;
 }

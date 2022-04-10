@@ -18,7 +18,7 @@
  *
  * \param monto float cifra a la cual se le calcula el descuento
  * \param descuentoAsig float porcentaje de descuento
- * \param pResultado float* puntero a resultado
+ * \param resultado float* puntero a resultado
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
@@ -29,7 +29,7 @@ int calcularDescuento(float monto, float descuentoAsig, float* pResultado);
  *
  * \param monto float cifra a la cual se le calcula interes
  * \param interesAsig float porcentaje de interes
- * \param pResultado float* puntero a resultado
+ * \param resultado float* puntero a resultado
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
@@ -39,7 +39,7 @@ int calcularInteres(float monto, float interesAsig, float* pResultado);
  *
  * \param monto float monto en pesos ingresado
  * \param valorUnBtc float precio unitario Bitcoin
- * \param pResultado float* puntero a variable resultado
+ * \param resultado float* puntero a variable resultado
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
@@ -50,7 +50,7 @@ int calcularBtc(float monto, float valorUnBtc, float* pResultado);
  *
  * \param monto1 float monto1
  * \param monto2 float monto2
- * \param pResultado float* puntero a resultado
+ * \param resultado float* puntero a resultado
  * \return int retorna 0 si monto1 es mas grande que monto2. Y rtorna 1 si el monto2 es mas grande que monto1
  *
  */
@@ -61,7 +61,7 @@ int diferenciaPrecio(float monto1, float monto2, float* pResultado);
  *
  * \param precio float precio
  * \param kilometros float kilomeros
- * \param pResultado float* puntero a resultado
+ * \param resultado float* puntero a resultado
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
