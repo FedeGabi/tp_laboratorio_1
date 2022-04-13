@@ -9,6 +9,7 @@
 #define INTERES 25
 #define ARSBTC 4606954.55
 #include "fminpout.h"
+
 int ingresarCifra(float* pCifra)
 {
     int retorno=-1;
@@ -24,11 +25,16 @@ int ingresarCifra(float* pCifra)
             printf("               *** ERROR ***\n");
             printf("NO SE ADMITEN CARACTERES O NUMEROS NEGATIVOS\n\n");
             system("pause");
-            *pCifra=esNum;
+            *pCifra=0;
+            retorno=-1;
+        }
+        else if(!numero){
+            *pCifra=0;
+            retorno=0;
         }
         else{
-            *pCifra=numero;
-            retorno=1;
+        	*pCifra=numero;
+        	retorno=1;
         }
     }
     return retorno;
@@ -52,106 +58,93 @@ int mostrarMenuPrincipal(float Kilometraje, float aerolineas, float latam)
     return opcion;
 }
 
-int mostrarSubmenuPrecios()
+float mostrarSubmenuPrecios()
 {
-    int opcion=0;
+    float opcion;
     system("cls");
     printf("\n");
     printf("   ******* INGRESAR PRECIO DE VUELOS *******\n");
     printf("  1. PRECIO VUELO AEROLINEAS\n");
     printf("  2. PRECIO VUELO LATAM\n");
     printf("  3. MENU ANTERIOR\n");
-    scanf("%d",&opcion);
+    ingresarCifra(&opcion);
     return opcion;
 }
 
-char mostrarSubmenuCostos()
-{
-    char opcion;
-    system("cls");
-    printf("\n");
-    printf("   ********* CALCULAR TODOS LOS COSTOS *******\n\n");
-    printf("a) Tarjeta de debito (descuento 10 porciento)\n");
-    printf("b) Tarjeta de credito (interes 25 porciento)\n");
-    printf("c) Bitcoin (1BTC -> 4606954.55 Pesos Argentinos)\n");
-    printf("d) Mostrar precio por km (precio unitario)\n");
-    printf("e) Mostrar diferencia de precio ingresada (Latam - Aerolineas)\n");
-    fflush(stdin);
-    scanf("%c",&opcion);
-    return opcion;
-}
-
-int cargaForzada(float* pKilometros, float* pPrecioAero, float* pPrecioLatam)
+int cargaForzada(float* pKilometros, float* pPrecioAero, float* pPrecioLatam, float km, float precio1, float precio2)
 {
     int retorno=0;
     if(pKilometros!=NULL && pPrecioAero !=NULL && pPrecioLatam !=NULL)
     {
-        *pKilometros=7090;
-        *pPrecioAero=162965;
-        *pPrecioLatam=159339;
+        *pKilometros=km;
+        *pPrecioAero=precio1;
+        *pPrecioLatam=precio2;
+
         retorno=1;
 
     }
     return retorno;
 }
 
-int hardcodearBanderas(int* des1, int* des2, int* inter1, int* inter2, int* btc1, int* btc2, int* uni1, int* uni2, int argumento)
+int hardcodearBanderas(int* flag1, int* flag2, int* flag3, int argumento)
 {
     int retorno=0;
-    if(des1!=NULL && des2!=NULL && inter1!=NULL && inter2!=NULL && btc1!=NULL && inter2!=NULL && uni1!=NULL && uni2!=NULL)
+    if(flag1!=NULL)
     {
         if(argumento==1)
         {
-            *des1=1;
-            *des2=1;
-            *inter1=1;
-            *inter2=1;
-            *btc1=1;
-            *btc2=1;
-            *uni1=1;
-            *uni2=1;
+            *flag1=1;
+            *flag2=1;
+            *flag3=1;
         }
         else if(argumento==0)
             {
-            *des1=0;
-            *des2=0;
-            *inter1=0;
-            *inter2=0;
-            *btc1=0;
-            *btc2=0;
-            *uni1=0;
-            *uni2=0;
+        	*flag1=0;
+        	*flag2=0;
+			*flag3=0;
         }
         retorno=1;
     }
     return retorno;
 }
 
-int informarResultados(float km, float precio, int desc, int inter,
-                   int btc, int uni,float rDesc, float rInt, float rBtc, float rUni, char mensaje[])
+int informarResultados(float km, float precio,float rDesc, float rInt, float rBtc, float rUni, char mensaje[])
 {
     int retorno=0;
     if(precio)
     {
         printf("Precio %s es: $%.2f\n",mensaje, precio);
-        if(desc)
-        {
-            printf("a) Precio con tarjeta de debito: $%.2f\n", rDesc);
+		printf("a) Precio con tarjeta de debito: $%.2f\n", rDesc);
+		printf("b) Precio con tarjeta de credito: $%.2f\n", rInt);
+		printf("c) Precio pagando con Bitcoin: %.5f\n", rBtc);
+		if(km)
+		{
+			printf("d) Mostrar precio unitario: $%.2f\n", rUni);
         }
-        if(inter)
-        {
-            printf("b) Precio con tarjeta de credito: $%.2f\n", rInt);
-        }
-        if(btc)
-        {
-            printf("c) Precio pagando con Bitcoin: %.4f\n", rBtc);
-        }
-        if(uni)
-        {
-            printf("d) Mostrar precio unitario: $%.2f\n", rUni);
-        }
+		else{
+			printf("d) KILOMETROS NO INGRESADOS (no se pudo calcular el precio unitario)\n");
+		}
         retorno =1;
     }
     return retorno;
+}
+
+char ingresarChar(char char1, char char2)
+{
+	char retorno='n';
+	char aux;
+	fflush(stdin);
+	scanf("%c", &aux);
+	if(tolower(char1)==tolower(aux))
+	{
+		retorno=char1;
+	}
+	else{
+		if(tolower(char2)==tolower(aux))
+			{
+				retorno=char2;
+			}
+	}
+	return retorno;
 }
 

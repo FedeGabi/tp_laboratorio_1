@@ -6,6 +6,7 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "fmmath.h"
 #ifndef FMINPOUT_H_
 #define FMINPOUT_H_
@@ -39,53 +40,39 @@ int mostrarMenuPrincipal(float Kilometraje, float aerolineas, float latam);
  * \return int retorna la opcion elegida
  *
  */
-int mostrarSubmenuPrecios();
-
-
-/** \brief muestra un menu de costos y se pide ingreso de una de las opciones
- *
- * \return char retorna el caracter seleccionado
- *
- */
-char mostrarSubmenuCostos();
+float mostrarSubmenuPrecios();
 
 
 /** \brief carga datos de manera forzada
  *
- * \param pKilometros float* carga kilometros
- * \param pPrecioAero float* carga precio Aerolineas
- * \param pPrecioLatam float* carga precio Latam
+ * \param pKilometros float* carga variable kilometros
+ * \param pPrecioAero float* carga variable Aerolineas
+ * \param pPrecioLatam float* carga variable Latam
+ * \param km float  kilometros
+ * \param precio1 float precio1
+ * \param precio2 float precio2
  * \return int
  *
  */
-int cargaForzada(float* pKilometros, float* pPrecioAero, float* pPrecioLatam);
+int cargaForzada(float* pKilometros, float* pPrecioAero, float* pPrecioLatam, float km, float precio1, float precio2);
 
 
 /** \brief
  *
- * \param des1 int* flag descuento
- * \param des2 int* flag descuento2
- * \param inter1 int* flag interes
- * \param inter2 int* flag interes2
- * \param btc1 int* flag Bitcoin
- * \param btc2 int* flag Bitcoin2
- * \param uni1 int* flag precio unitario1
- * \param uni2 int* flag precio unitario2
+ * \param flag1 int* flag1
+ * \param flag2 int* flag2
+ * \param flag3 int* flag3
  * \param argumento int argumento para inicializar banderas en 1 o 0
  * \return int
  *
  */
-int hardcodearBanderas(int* des1, int* des2, int* inter1, int* inter2, int* btc1, int* btc2, int* uni1, int* uni2, int argumento);
+int hardcodearBanderas(int* flag1, int* flag2, int* flag3, int argumento);
 
 
 /** \brief toma los resultados a mostrar
  *
  * \param km float kilometros
  * \param precio float precio
- * \param desc int flag descuento
- * \param inter int flag interes
- * \param btc int flag Bitcoin
- * \param uni int flag Precio unitario por Km
  * \param rDesc float resultado del descuento
  * \param rInt float resultado del interes
  * \param rBtc float resultado Bitcoin
@@ -94,4 +81,13 @@ int hardcodearBanderas(int* des1, int* des2, int* inter1, int* inter2, int* btc1
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
-int informarResultados(float km, float precio, int desc, int inter, int btc, int uni,float rDesc, float rInt, float rBtc, float rUni, char mensaje[]);
+int informarResultados(float km, float precio,float rDesc, float rInt, float rBtc, float rUni, char mensaje[]);
+
+/** \brief valida el ingreso de un char
+ *
+ * \param char1 caracter de referencia
+ * \param char2 char caracter de referencia
+ * \return char retorna el char coincidente con el ingreso
+ *
+ */
+char ingresarChar(char char1, char char2);

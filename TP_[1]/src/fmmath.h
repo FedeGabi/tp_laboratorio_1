@@ -46,12 +46,12 @@ int calcularInteres(float monto, float interesAsig, float* pResultado);
 int calcularBtc(float monto, float valorUnBtc, float* pResultado);
 
 
-/** \brief calcula la diferencia del numero mas grande, menos el mas chico
+/** \brief calcula la diferencia entre el numero mas grande y el numero mas chico
  *
  * \param monto1 float monto1
  * \param monto2 float monto2
  * \param resultado float* puntero a resultado
- * \return int retorna 0 si monto1 es mas grande que monto2. Y rtorna 1 si el monto2 es mas grande que monto1
+ * \return int retorna 0 si monto1 es mas grande que monto2. Y retorna 1 si el monto2 es mas grande que monto1. retorna -1 si la funcion no termina correctamente
  *
  */
 int diferenciaPrecio(float monto1, float monto2, float* pResultado);
