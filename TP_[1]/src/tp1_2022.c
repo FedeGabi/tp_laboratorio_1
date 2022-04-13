@@ -152,8 +152,8 @@ int main() {
 			break;
 		case 5:
 			system("cls");
-			cargaForzada(&kilometraje, &precioAero, &precioLatam, 7090, 162965,
-					159339);
+			cargaForzada(&kilometraje, &precioAero, &precioLatam, 1354, 128540,
+					100002);
 			hardcodearBanderas(&flagAtencion, &flagCalculoAero,
 					&flagCalculoLatam, 1);
 			calcularDescuento(precioAero, DESCUENTO, &resultadoDescuentoAero);
@@ -177,6 +177,12 @@ int main() {
 					resultadoBtcLatam, precioUnitarioLatam, "Latam");
 			printf("\ne) La diferencia de precio es: %.2f\n\n",
 					diferenciaResultado);
+			system("pause");
+			hardcodearBanderas(&flagAtencion, &flagCalculoAero,
+			&flagCalculoLatam, 0);
+			cargaForzada(&kilometraje, &precioAero, &precioLatam,0,0,0);
+			system("cls");
+			printf("   *** SE REINICIARON LOS VALORES ***\n");
 			system("pause");
 			break;
 		case 6:
