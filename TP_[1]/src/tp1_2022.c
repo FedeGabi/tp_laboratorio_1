@@ -14,9 +14,13 @@
 #include "fminpout.h"
 #include "fmmath.h"
 
-#define DESCUENTO 10
-#define INTERES 25
-#define ARSBTC 4606954.55
+#define DESCUENTO 10 			// porcentaje de descuento deseado
+#define INTERES 25  			// porcentaje de interes deseado
+#define ARSBTC 4606954.55	 	// valor de 1 Bitcoin en pesos argentinos
+
+#define HARD_KM 7090
+#define HARD_PRECIO_AERO 162965
+#define HARD_PRECIO_LATAM 159339
 
 int main() {
 	setbuf(stdout, NULL);
@@ -34,6 +38,8 @@ int main() {
 	float diferenciaResultado;
 	int flagCalculoAero = 0;
 	int flagCalculoLatam = 0;
+	int flagCalculoUnitarioAero = 0;
+	int flagCalculoUnitarioLatam = 0;
 	int flagAtencion = 0;
 	int opcion;
 	do {
@@ -95,6 +101,7 @@ int main() {
 					if (kilometraje) {
 						calcularPrecioUnitario(precioAero, kilometraje,
 								&precioUnitarioAero);
+						flagCalculoUnitarioAero = 1;
 					}
 					flagCalculoAero = 1;
 				}
@@ -107,10 +114,11 @@ int main() {
 					if (kilometraje) {
 						calcularPrecioUnitario(precioLatam, kilometraje,
 								&precioUnitarioLatam);
+						flagCalculoUnitarioLatam = 1;
 					}
 					flagCalculoLatam = 1;
 				}
-				if (precioAero || precioLatam) {
+				if (precioAero && precioLatam) {
 					diferenciaPrecio(precioAero, precioLatam,
 							&diferenciaResultado);
 				}
@@ -124,7 +132,7 @@ int main() {
 			if (!flagCalculoAero && !flagCalculoLatam) {
 				system("cls");
 				printf(
-						"   *** IMPOSIBLE MOSTRAR CALCULOS, NO EXISTEN CALCULOS REGISTRADOS ***\n");
+						"   *** IMPOSIBLE MOSTRAR RESULTADOS, NO SE REGISTRAN CALCULOS ***\n");
 				system("pause");
 				break;
 			} else {
@@ -132,19 +140,19 @@ int main() {
 					printf("KMs Ingresados: %.2f\n\n", kilometraje);
 				}
 				if (flagCalculoAero) {
-					informarResultados(kilometraje, precioAero,
+					informarResultados(flagCalculoUnitarioAero, precioAero,
 							resultadoDescuentoAero, resultadoInteresAero,
 							resultadoBtcAero, precioUnitarioAero, "Aerolineas");
 					printf("\n");
 				}
 				if (flagCalculoLatam) {
-					informarResultados(kilometraje, precioLatam,
+					informarResultados(flagCalculoUnitarioLatam, precioLatam,
 							resultadoDescuentoLatam, resultadoInteresLatam,
 							resultadoBtcLatam, precioUnitarioLatam, "Latam");
 				}
 
-				if (precioAero || precioLatam) {
-					printf("\nLa diferencia de precio es: $%.2f\n\n",
+				if (flagCalculoAero && flagCalculoLatam) {
+					printf("\ne) La diferencia de precio es: %.2f\n\n",
 							diferenciaResultado);
 				}
 				system("pause");
@@ -152,8 +160,8 @@ int main() {
 			break;
 		case 5:
 			system("cls");
-			cargaForzada(&kilometraje, &precioAero, &precioLatam, 1354, 128540,
-					100002);
+			cargaForzada(&kilometraje, &precioAero, &precioLatam, HARD_KM,
+			HARD_PRECIO_AERO, HARD_PRECIO_LATAM);
 			hardcodearBanderas(&flagAtencion, &flagCalculoAero,
 					&flagCalculoLatam, 1);
 			calcularDescuento(precioAero, DESCUENTO, &resultadoDescuentoAero);
@@ -175,12 +183,14 @@ int main() {
 			informarResultados(kilometraje, precioLatam,
 					resultadoDescuentoLatam, resultadoInteresLatam,
 					resultadoBtcLatam, precioUnitarioLatam, "Latam");
-			printf("\ne) La diferencia de precio es: %.2f\n\n",
-					diferenciaResultado);
+			if (flagCalculoAero && flagCalculoLatam) {
+				printf("\ne) La diferencia de precio es: %.2f\n\n",
+						diferenciaResultado);
+			}
 			system("pause");
+			cargaForzada(&kilometraje, &precioAero, &precioLatam, 0, 0, 0);
 			hardcodearBanderas(&flagAtencion, &flagCalculoAero,
-			&flagCalculoLatam, 0);
-			cargaForzada(&kilometraje, &precioAero, &precioLatam,0,0,0);
+					&flagCalculoLatam, 0);
 			system("cls");
 			printf("   *** SE REINICIARON LOS VALORES ***\n");
 			system("pause");

@@ -10,8 +10,6 @@
 #ifndef FMMATH_H_
 #define FMMATH_H_
 
-
-
 #endif /* FMMATH_H_ */
 
 /** \brief recibe monto y porcentaje de descuento a ser aplicado
@@ -22,8 +20,7 @@
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
-int calcularDescuento(float monto, float descuentoAsig, float* pResultado);
-
+int calcularDescuento(float monto, float descuentoAsig, float *pResultado);
 
 /** \brief recibe monto e interes a ser aplicado
  *
@@ -33,7 +30,7 @@ int calcularDescuento(float monto, float descuentoAsig, float* pResultado);
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
-int calcularInteres(float monto, float interesAsig, float* pResultado);
+int calcularInteres(float monto, float interesAsig, float *pResultado);
 
 /** \brief calcula monto de Bitcoin por cantidad de pesos ingresados
  *
@@ -43,8 +40,7 @@ int calcularInteres(float monto, float interesAsig, float* pResultado);
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
-int calcularBtc(float monto, float valorUnBtc, float* pResultado);
-
+int calcularBtc(float monto, float valorUnBtc, float *pResultado);
 
 /** \brief calcula la diferencia entre el numero mas grande y el numero mas chico
  *
@@ -54,8 +50,7 @@ int calcularBtc(float monto, float valorUnBtc, float* pResultado);
  * \return int retorna 0 si monto1 es mas grande que monto2. Y retorna 1 si el monto2 es mas grande que monto1. retorna -1 si la funcion no termina correctamente
  *
  */
-int diferenciaPrecio(float monto1, float monto2, float* pResultado);
-
+int diferenciaPrecio(float monto1, float monto2, float *pResultado);
 
 /** \brief precio calcula el precio unitario entre dos montos
  *
@@ -65,4 +60,4 @@ int diferenciaPrecio(float monto1, float monto2, float* pResultado);
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
-int calcularPrecioUnitario(float precio, float kilometros, float* pResultado);
+int calcularPrecioUnitario(float precio, float kilometros, float *pResultado);

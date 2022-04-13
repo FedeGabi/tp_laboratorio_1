@@ -11,8 +11,6 @@
 #ifndef FMINPOUT_H_
 #define FMINPOUT_H_
 
-
-
 #endif /* FMINPOUT_H_ */
 
 /** \brief pide numero al usuario y lo guarda en la variable apuntada
@@ -21,7 +19,7 @@
  * \return int retorna 1 si la funcion concluye con exito
  *
  */
-int ingresarCifra(float* pCifra);
+int ingresarCifra(float *pCifra);
 
 /** \brief muestra un menu principal y se pide el ingreso de una de las opciones
  *
@@ -33,15 +31,12 @@ int ingresarCifra(float* pCifra);
  */
 int mostrarMenuPrincipal(float Kilometraje, float aerolineas, float latam);
 
-
-
 /** \brief muestra un submenu con dos opciones
  *
  * \return int retorna la opcion elegida
  *
  */
 float mostrarSubmenuPrecios();
-
 
 /** \brief carga datos de manera forzada
  *
@@ -54,8 +49,8 @@ float mostrarSubmenuPrecios();
  * \return int
  *
  */
-int cargaForzada(float* pKilometros, float* pPrecioAero, float* pPrecioLatam, float km, float precio1, float precio2);
-
+int cargaForzada(float *pKilometros, float *pPrecioAero, float *pPrecioLatam,
+		float km, float precio1, float precio2);
 
 /** \brief
  *
@@ -66,12 +61,11 @@ int cargaForzada(float* pKilometros, float* pPrecioAero, float* pPrecioLatam, fl
  * \return int
  *
  */
-int hardcodearBanderas(int* flag1, int* flag2, int* flag3, int argumento);
-
+int hardcodearBanderas(int *flag1, int *flag2, int *flag3, int argumento);
 
 /** \brief toma los resultados a mostrar
  *
- * \param km float kilometros
+ * \param flagKm int flag kilometros
  * \param precio float precio
  * \param rDesc float resultado del descuento
  * \param rInt float resultado del interes
@@ -81,7 +75,8 @@ int hardcodearBanderas(int* flag1, int* flag2, int* flag3, int argumento);
  * \return int retorna 1 si la funcion concluye satisfactoriamente
  *
  */
-int informarResultados(float km, float precio,float rDesc, float rInt, float rBtc, float rUni, char mensaje[]);
+int informarResultados(int flagKm, float precio, float rDesc, float rInt,
+		float rBtc, float rUni, char mensaje[]);
 
 /** \brief valida el ingreso de un char
  *
