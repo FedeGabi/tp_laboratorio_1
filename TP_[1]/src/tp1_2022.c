@@ -18,9 +18,9 @@
 #define INTERES 25  			// porcentaje de interes deseado
 #define ARSBTC 4606954.55	 	// valor de 1 Bitcoin en pesos argentinos
 
-#define HARD_KM 7090
-#define HARD_PRECIO_AERO 162965
-#define HARD_PRECIO_LATAM 159339
+#define HARD_KM 7090					// cantidad de kilometros que se desea hardcodear
+#define HARD_PRECIO_AERO 162965			// precio Aerolineas que se desea hardcodear
+#define HARD_PRECIO_LATAM 159339		// precio Latam que se desea hardcodear
 
 int main() {
 	setbuf(stdout, NULL);
