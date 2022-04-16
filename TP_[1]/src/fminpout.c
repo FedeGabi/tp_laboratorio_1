@@ -58,7 +58,7 @@ float mostrarSubmenuPrecios() {
 	float opcion;
 	system("cls");
 	printf("\n");
-	printf("   ******* INGRESAR PRECIO DE VUELOS *******\n");
+	printf("   ******* INGRESAR PRECIO DE VUELOS *******\n\n");
 	printf("  1. PRECIO VUELO AEROLINEAS\n");
 	printf("  2. PRECIO VUELO LATAM\n");
 	printf("  3. MENU ANTERIOR\n");
@@ -109,7 +109,7 @@ int informarResultados(int flagKm, float precio, float rDesc, float rInt,
 			printf("d) Mostrar precio unitario: $%.2f\n", rUni);
 		} else {
 			printf(
-					"d) KILOMETROS NO INGRESADOS (no se pudo calcular el precio unitario)\n");
+					"d) NO SE CALCULO EL PRECIO UNITARIO (no se ingresaron kilometros)\n");
 		}
 		retorno = 1;
 	}
