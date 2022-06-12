@@ -1,4 +1,4 @@
-ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
+id,name,lastname,price,flycode,typePassenger,statusFlight
 1,Lou,Gonzalez,10000,BA2491A,FirstClass,Aterrizado
 2,Ulrike,Munoz,25000,IB0800A,FirstClass,Aterrizado
 3,Brade,Rojas,20000,MM0987B,FirstClass,En Horario
@@ -25,7 +25,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 24,Reagen,Gutierrez,42000,MM0987B,FirstClass,En Horario
 25,Braden,Castro,25000,MM0987B,FirstClass,En Horario
 26,Karim,Pizarro,25000,MM0987B,FirstClass,En Horario
-27,Anthea,Alvarez,42000,MM0987B,FirstClass,En Horario
+27,Anthea,alvarez,42000,MM0987B,FirstClass,En Horario
 28,Doro,Vasquez,33000,IB0800A,FirstClass,Aterrizado
 29,Gaye,Sanchez,37000,IB0800A,FirstClass,Aterrizado
 30,Toby,Fernandez,15000,IB0800A,FirstClass,Aterrizado
@@ -98,7 +98,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 97,Marcellus,Guerrero,50000,IB0800A,ExecutiveClass,Aterrizado
 98,Jacquelin,Mendoza,30000,IB0800A,ExecutiveClass,Aterrizado
 99,Aleda,Farias,50000,IB0800A,ExecutiveClass,Aterrizado
-100,Georgeta,San martin,10000,IB0800A,ExecutiveClass,Aterrizado
+100,Georgeta,San Martin,10000,IB0800A,ExecutiveClass,Aterrizado
 101,Marcille,Gonzalez,10000,IB0800A,ExecutiveClass,Aterrizado
 102,Ertha,Fernandez,10000,IB0800A,ExecutiveClass,Aterrizado
 103,Desiri,Rodriguez,25000,MM0987B,ExecutiveClass,En Horario
@@ -113,7 +113,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 112,Tersina,Hernandez,30000,IB0800A,ExecutiveClass,Aterrizado
 113,Johnathon,Diaz,15000,IB0800A,ExecutiveClass,Aterrizado
 114,Freddie,Moreno,12000,IB0800A,ExecutiveClass,Aterrizado
-115,Harmon,Alvarez,50000,IB0800A,ExecutiveClass,Aterrizado
+115,Harmon,alvarez,50000,IB0800A,ExecutiveClass,Aterrizado
 116,Tracey,Munoz,20000,IB0800A,ExecutiveClass,Aterrizado
 117,Cherrita,Romero,33000,MM0987B,ExecutiveClass,En Horario
 118,Stu,Alonso,12000,MM0987B,ExecutiveClass,En Horario
@@ -149,7 +149,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 148,Benton,Gutierrez,12000,IB0800A,EconomyClass,Aterrizado
 149,Lena,Castro,25000,IB0800A,EconomyClass,Aterrizado
 150,Dot,Pizarro,18000,IB0800A,EconomyClass,Aterrizado
-151,Meryl,Alvarez,12000,IB0800A,EconomyClass,Aterrizado
+151,Meryl,alvarez,12000,IB0800A,EconomyClass,Aterrizado
 152,Babbie,Vasquez,15000,IB0800A,EconomyClass,Aterrizado
 153,Byram,Sanchez,42000,IB0800A,EconomyClass,Aterrizado
 154,Bertine,Fernandez,25000,IB0800A,EconomyClass,Aterrizado
@@ -222,7 +222,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 221,Aylmer,Guerrero,33000,TU6789B,FirstClass,Aterrizado
 222,Marina,Mendoza,12000,TU6789B,FirstClass,Aterrizado
 223,Enrico,Farias,50000,TU6789B,FirstClass,Aterrizado
-224,Zonda,San martin,33000,TU6789B,FirstClass,Aterrizado
+224,Zonda,San Martin,33000,TU6789B,FirstClass,Aterrizado
 225,Adriano,Gonzalez,33000,TU6789B,FirstClass,Aterrizado
 226,Trula,Fernandez,30000,TU6789B,FirstClass,Aterrizado
 227,Adel,Rodriguez,30000,TU6789B,FirstClass,Aterrizado
@@ -237,7 +237,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 236,Anastasia,Hernandez,18000,BA2491A,EconomyClass,Aterrizado
 237,Cathleen,Diaz,10000,TU6789B,FirstClass,Aterrizado
 238,Leeanne,Moreno,15000,TU6789B,FirstClass,Aterrizado
-239,Chet,Alvarez,42000,TU6789B,FirstClass,Aterrizado
+239,Chet,alvarez,42000,TU6789B,FirstClass,Aterrizado
 240,Billie,Munoz,37000,TU6789B,FirstClass,Aterrizado
 241,Alexandra,Romero,42000,TU6789B,FirstClass,Aterrizado
 242,Broddie,Alonso,42000,TU6789B,ExecutiveClass,Aterrizado
@@ -273,7 +273,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 272,Duncan,Gutierrez,37000,TU6789B,ExecutiveClass,Aterrizado
 273,Bond,Castro,10000,TU6789B,ExecutiveClass,Aterrizado
 274,Dyann,Pizarro,50000,TU6789B,ExecutiveClass,Aterrizado
-275,Charmian,Alvarez,15000,TU6789B,ExecutiveClass,Aterrizado
+275,Charmian,alvarez,15000,TU6789B,ExecutiveClass,Aterrizado
 276,Dru,Vasquez,50000,TU6789B,ExecutiveClass,Aterrizado
 277,Kiel,Sanchez,50000,TU6789B,ExecutiveClass,Aterrizado
 278,Emory,Fernandez,15000,TU6789B,ExecutiveClass,Aterrizado
@@ -346,7 +346,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 345,Aldric,Guerrero,50000,TU6789B,EconomyClass,Aterrizado
 346,Janeta,Mendoza,10000,TU6789B,EconomyClass,Aterrizado
 347,Tarra,Farias,12000,TU6789B,EconomyClass,Aterrizado
-348,Jefferey,San martin,33000,TU6789B,EconomyClass,Aterrizado
+348,Jefferey,San Martin,33000,TU6789B,EconomyClass,Aterrizado
 349,Cassie,Gonzalez,50000,TU6789B,EconomyClass,Aterrizado
 350,Maiga,Fernandez,20000,TU6789B,EconomyClass,Aterrizado
 351,Heddi,Rodriguez,20000,TU6789B,EconomyClass,Aterrizado
@@ -361,7 +361,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 360,Honor,Hernandez,30000,TU6789B,EconomyClass,Aterrizado
 361,Sinclair,Diaz,50000,TU6789B,EconomyClass,Aterrizado
 362,Buddy,Moreno,50000,TU6789B,EconomyClass,Aterrizado
-363,Neilla,Alvarez,50000,TU6789B,EconomyClass,Aterrizado
+363,Neilla,alvarez,50000,TU6789B,EconomyClass,Aterrizado
 364,Junie,Munoz,20000,TU6789B,EconomyClass,Aterrizado
 365,Neely,Romero,20000,TU6789B,EconomyClass,Aterrizado
 366,Klarrisa,Alonso,18000,TU6789B,EconomyClass,Aterrizado
@@ -397,7 +397,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 396,Iorgos,Gutierrez,18000,MM0987B,ExecutiveClass,En Horario
 397,Charil,Castro,33000,MM0987B,ExecutiveClass,En Horario
 398,Easter,Pizarro,30000,MM0987B,ExecutiveClass,En Horario
-399,Esdras,Alvarez,37000,MM0987B,ExecutiveClass,En Horario
+399,Esdras,alvarez,37000,MM0987B,ExecutiveClass,En Horario
 400,Prince,Vasquez,25000,MM0987B,EconomyClass,En Horario
 401,Vail,Sanchez,33000,MM0987B,EconomyClass,En Horario
 402,Rachel,Fernandez,12000,MM0987B,EconomyClass,En Horario
@@ -470,7 +470,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 469,Chrisy,Guerrero,15000,GU2345F,ExecutiveClass,En Vuelo
 470,Rod,Mendoza,50000,GU2345F,ExecutiveClass,En Vuelo
 471,Ramsay,Farias,20000,GU2345F,ExecutiveClass,En Vuelo
-472,Saidee,San martin,50000,GU2345F,ExecutiveClass,En Vuelo
+472,Saidee,San Martin,50000,GU2345F,ExecutiveClass,En Vuelo
 473,Erek,Gonzalez,10000,GU2345F,ExecutiveClass,En Vuelo
 474,Salomi,Fernandez,10000,GU2345F,ExecutiveClass,En Vuelo
 475,Coletta,Rodriguez,50000,GU2345F,ExecutiveClass,En Vuelo
@@ -485,7 +485,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 484,Kym,Hernandez,20000,GU2345F,EconomyClass,En Vuelo
 485,Melisse,Diaz,10000,GU2345F,EconomyClass,En Vuelo
 486,Bartholomew,Moreno,33000,GU2345F,EconomyClass,En Vuelo
-487,Rorie,Alvarez,25000,GU2345F,EconomyClass,En Vuelo
+487,Rorie,alvarez,25000,GU2345F,EconomyClass,En Vuelo
 488,Hedvige,Munoz,37000,GU2345F,EconomyClass,En Vuelo
 489,Dorothea,Romero,15000,GU2345F,EconomyClass,En Vuelo
 490,Tamarah,Alonso,50000,GU2345F,EconomyClass,En Vuelo
@@ -521,7 +521,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 520,Coop,Gutierrez,37000,GU2345F,EconomyClass,En Vuelo
 521,Sheridan,Castro,50000,GU2345F,EconomyClass,En Vuelo
 522,Charles,Pizarro,42000,GU2345F,EconomyClass,En Vuelo
-523,Eddy,Alvarez,12000,GU2345F,EconomyClass,En Vuelo
+523,Eddy,alvarez,12000,GU2345F,EconomyClass,En Vuelo
 524,Janey,Vasquez,42000,GU2345F,EconomyClass,En Vuelo
 525,Edan,Sanchez,20000,GU2345F,EconomyClass,En Vuelo
 526,Homer,Fernandez,10000,GU2345F,EconomyClass,En Vuelo
@@ -594,7 +594,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 593,Vic,Guerrero,25000,HY4567D,FirstClass,Demorado
 594,Cyndia,Mendoza,33000,HY4567D,FirstClass,Demorado
 595,Gray,Farias,42000,HY4567D,FirstClass,Demorado
-596,Dylan,San martin,30000,HY4567D,FirstClass,Demorado
+596,Dylan,San Martin,30000,HY4567D,FirstClass,Demorado
 597,Isabelle,Gonzalez,20000,HY4567D,FirstClass,Demorado
 598,Eachelle,Fernandez,37000,HY4567D,FirstClass,Demorado
 599,Howard,Rodriguez,18000,HY4567D,FirstClass,Demorado
@@ -609,7 +609,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 608,Joshia,Hernandez,25000,HY4567D,ExecutiveClass,Demorado
 609,Bernita,Diaz,15000,HY4567D,ExecutiveClass,Demorado
 610,Sayre,Moreno,33000,HY4567D,ExecutiveClass,Demorado
-611,Pearla,Alvarez,20000,HY4567D,ExecutiveClass,Demorado
+611,Pearla,alvarez,20000,HY4567D,ExecutiveClass,Demorado
 612,Fidole,Munoz,30000,HY4567D,ExecutiveClass,Demorado
 613,Evin,Romero,12000,HY4567D,ExecutiveClass,Demorado
 614,Fredia,Alonso,20000,HY4567D,ExecutiveClass,Demorado
@@ -645,7 +645,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 644,Malachi,Gutierrez,25000,HY4567D,EconomyClass,Demorado
 645,Sarajane,Castro,10000,HY4567D,EconomyClass,Demorado
 646,Arlie,Pizarro,42000,HY4567D,EconomyClass,Demorado
-647,Felike,Alvarez,12000,HY4567D,EconomyClass,Demorado
+647,Felike,alvarez,12000,HY4567D,EconomyClass,Demorado
 648,Ethan,Vasquez,12000,HY4567D,EconomyClass,Demorado
 649,Ruthy,Sanchez,20000,HY4567D,EconomyClass,Demorado
 650,Hugo,Fernandez,30000,HY4567D,EconomyClass,Demorado
@@ -718,7 +718,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 717,Hyacinthia,Guerrero,25000,IB0800A,EconomyClass,Aterrizado
 718,Fina,Mendoza,42000,IB0800A,EconomyClass,Aterrizado
 719,Kamila,Farias,42000,IB0800A,EconomyClass,Aterrizado
-720,Jennie,San martin,42000,IB0800A,EconomyClass,Aterrizado
+720,Jennie,San Martin,42000,IB0800A,EconomyClass,Aterrizado
 721,Riobard,Gonzalez,42000,IB0800A,EconomyClass,Aterrizado
 722,Joannes,Fernandez,10000,IB0800A,EconomyClass,Aterrizado
 723,Darlene,Rodriguez,42000,IB0800A,EconomyClass,Aterrizado
@@ -733,7 +733,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 732,Enrica,Hernandez,18000,IB0800A,EconomyClass,Aterrizado
 733,Evvy,Diaz,42000,IB0800A,EconomyClass,Aterrizado
 734,Silas,Moreno,20000,IB0800A,EconomyClass,Aterrizado
-735,Kaia,Alvarez,25000,IB0800A,EconomyClass,Aterrizado
+735,Kaia,alvarez,25000,IB0800A,EconomyClass,Aterrizado
 736,Arvie,Munoz,15000,IB0800A,EconomyClass,Aterrizado
 737,Keith,Romero,20000,FR5678G,FirstClass,En Horario
 738,Silvie,Alonso,12000,FR5678G,FirstClass,En Horario
@@ -769,7 +769,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 768,Blakeley,Gutierrez,18000,FR5678G,ExecutiveClass,En Horario
 769,Egan,Castro,10000,FR5678G,ExecutiveClass,En Horario
 770,Barbey,Pizarro,20000,FR5678G,ExecutiveClass,En Horario
-771,Portia,Alvarez,33000,FR5678G,ExecutiveClass,En Horario
+771,Portia,alvarez,33000,FR5678G,ExecutiveClass,En Horario
 772,Alica,Vasquez,37000,FR5678G,ExecutiveClass,En Horario
 773,Juliana,Sanchez,50000,FR5678G,ExecutiveClass,En Horario
 774,Barde,Fernandez,18000,FR5678G,ExecutiveClass,En Horario
@@ -842,7 +842,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 841,Shelley,Guerrero,15000,FR5678G,EconomyClass,En Horario
 842,Irv,Mendoza,15000,FR5678G,EconomyClass,En Horario
 843,Grant,Farias,33000,FR5678G,EconomyClass,En Horario
-844,Bella,San martin,18000,FR5678G,EconomyClass,En Horario
+844,Bella,San Martin,18000,FR5678G,EconomyClass,En Horario
 845,Yardley,Gonzalez,50000,FR5678G,EconomyClass,En Horario
 846,Brendin,Fernandez,10000,FR5678G,EconomyClass,En Horario
 847,Estella,Rodriguez,42000,FR5678G,EconomyClass,En Horario
@@ -857,7 +857,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 856,Henrieta,Hernandez,30000,FR5678G,EconomyClass,En Horario
 857,Devlen,Diaz,37000,FR5678G,EconomyClass,En Horario
 858,Ophelie,Moreno,37000,FR5678G,EconomyClass,En Horario
-859,Abramo,Alvarez,37000,FR5678G,EconomyClass,En Horario
+859,Abramo,alvarez,37000,FR5678G,EconomyClass,En Horario
 860,Fair,Munoz,37000,FR5678G,EconomyClass,En Horario
 861,Pietrek,Romero,25000,FR5678G,EconomyClass,En Horario
 862,Holden,Alonso,50000,FR5678G,EconomyClass,En Horario
@@ -893,7 +893,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 892,Devland,Gutierrez,10000,FR5678G,EconomyClass,En Horario
 893,Annamarie,Castro,20000,FR5678G,EconomyClass,En Horario
 894,Gabbie,Pizarro,42000,FR5678G,EconomyClass,En Horario
-895,Frasquito,Alvarez,15000,FR5678G,EconomyClass,En Horario
+895,Frasquito,alvarez,15000,FR5678G,EconomyClass,En Horario
 896,Oberon,Vasquez,15000,FR5678G,EconomyClass,En Horario
 897,Gabriell,Sanchez,10000,FR5678G,EconomyClass,En Horario
 898,Ki,Fernandez,30000,BR3456J,FirstClass,Demorado
@@ -966,7 +966,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 965,Kirstin,Guerrero,12000,BR3456J,EconomyClass,Demorado
 966,Karon,Mendoza,10000,BR3456J,EconomyClass,Demorado
 967,Esme,Farias,37000,BR3456J,EconomyClass,Demorado
-968,Berenice,San martin,10000,IB0800A,EconomyClass,Aterrizado
+968,Berenice,San Martin,10000,IB0800A,EconomyClass,Aterrizado
 969,Charlie,Gonzalez,50000,IB0800A,EconomyClass,Aterrizado
 970,Noach,Fernandez,12000,IB0800A,EconomyClass,Aterrizado
 971,Mercedes,Rodriguez,12000,IB0800A,EconomyClass,Aterrizado
@@ -981,7 +981,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 980,Brana,Hernandez,10000,BA2491A,EconomyClass,Aterrizado
 981,Genevieve,Diaz,20000,BA2491A,EconomyClass,Aterrizado
 982,Sharai,Moreno,10000,BA2491A,EconomyClass,Aterrizado
-983,Josi,Alvarez,12000,BA2491A,EconomyClass,Aterrizado
+983,Josi,alvarez,12000,BA2491A,EconomyClass,Aterrizado
 984,Pebrook,Munoz,33000,BA2491A,EconomyClass,Aterrizado
 985,Erna,Romero,33000,BA2491A,EconomyClass,Aterrizado
 986,Ferd,Alonso,25000,BA2491A,EconomyClass,Aterrizado
@@ -992,7 +992,7 @@ ID,NOMBRE,APELLIDO,PRECIO,CODVUELO,TIPO,ESTADO
 991,Zaccaria,Vazquez,33000,MM0987B,EconomyClass,En Horario
 992,Trenna,Ramos,10000,MM0987B,EconomyClass,En Horario
 993,Angelia,Moreno,50000,MM0987B,EconomyClass,En Horario
-994,Raquela,Alvarez,12000,MM0987B,EconomyClass,En Horario
+994,Raquela,alvarez,12000,MM0987B,EconomyClass,En Horario
 995,Maxi,Munoz,18000,MM0987B,EconomyClass,En Horario
 996,Atalanta,Romero,37000,MM0987B,EconomyClass,En Horario
 997,De witt,Alonso,12000,MM0987B,EconomyClass,En Horario

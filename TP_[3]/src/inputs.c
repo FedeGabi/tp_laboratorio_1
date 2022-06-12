@@ -10,31 +10,60 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include "LinkedList.h"
 
-int ingresarFloat(float *pFloat, char msj [], char msjError[], int intentos)
+
+int menu()
+{
+    system("cls");
+    int opcion;
+    printf("1. Cargar los datos de los pasajeros desde el archivo data.csv (modo texto). \n");
+    printf("2. Cargar los datos de los pasajeros desde el archivo data.bin (modo texto). \n");
+    printf("3. Alta de pasajero  \n");
+    printf("4. Modificar datos de pasajero \n");
+    printf("5. Baja de pasajero\n");
+    printf("6. Listar pasajeros \n");
+    printf("7. Ordenar pasajeros  \n");
+    printf("8. Guardar los datos de los pasajeros en el archivo data.csv (modo texto). \n");
+    printf("9. Guardar los datos de los pasajeros en el archivo data.bin (modo binario)\n");
+    printf("10. salir\n\n");
+    scanf("%d", &opcion);
+    return opcion;
+}
+
+int menuEditPassenger()
+{
+    system("cls");
+    int opcion;
+    printf("1. Editar Nombre\n");
+    printf("2. Editar Apellido\n");
+    printf("3. Editar Precio\n");
+    printf("4. Editar Codigo de vuelo\n");
+    printf("5. Editar Tipo de Pasajero\n");
+    printf("6. Editar Estado de Vuelo \n");
+    printf("7. salir\n\n");
+    scanf("%d", &opcion);
+    return opcion;
+}
+
+int ingresarFloat(float *pFloat, char msj [])
 {
     int retorno = -1;
-    if (pFloat != NULL && msj !=NULL && msjError != NULL && intentos>0)
+    if (pFloat != NULL && msj !=NULL)
     {
         float numero;
         int esNum;
-        int i=0;
+        int seguir=1;
         do
         {
             system("cls");
             printf("%s", msj);
             esNum = scanf("%f", &numero);
             fflush(stdin);
-            if (numero < 0 || !esNum)
+            if (numero <= 0 || !esNum)
             {
                 system("cls");
-                printf("%s", msjError);
-                system("pause");
-                *pFloat = 0;
-                retorno = -1;
-            }
-            else if (!numero)
-            {
+                seguir=confirmar("\nError, solo se admiten valores numericos positivos. Desea reingresar? (s o n): ");
                 *pFloat = 0;
                 retorno = 0;
             }
@@ -42,11 +71,10 @@ int ingresarFloat(float *pFloat, char msj [], char msjError[], int intentos)
             {
                 *pFloat = numero;
                 retorno = 1;
-                i=intentos;
+                seguir=0;
             }
-            i++;
         }
-        while(i<intentos);
+        while(seguir==1);
     }
     return retorno;
 }
@@ -90,38 +118,7 @@ int ingresarInt(int *pInt, char msj [], char msjError[], int intentos)
     return retorno;
 }
 
-int ingresarValidarCadena(char cadena[],int tamMin ,int tamMax, char msj[], char msjError[], int intentos)
-{
-    int retorno=0;
-    char aux[400];
-    int i=0;
-    if(cadena != NULL && tamMin >0 && tamMax >0 && msj != NULL && msjError != NULL && intentos >0)
-    {
-        do
-        { system("cls");
-            printf("%s", msj);
-            fflush(stdin);
-            gets(aux);
-            if(strlen(aux)>tamMax || strlen(aux)<tamMin)
-            {
-                printf("%s", msjError);
-                system("pause");
-                retorno=0;
-            }
-            else
-            {
-                strcpy(cadena, aux);
-                retorno=1;
-                break;
-            }
-            i++;
-        }
-        while(i<intentos);
-    }
-    return retorno;
-}
-
-int ingresarValidarNombre(char cadena[],int tamMin ,int tamMax, char msj[], char msjError[])
+int ingresarValidarCadena(char cadena[],int tamMin,int tamMax, char msj[], char msjError[])
 {
     int retorno=0;
     char aux[400];
@@ -129,7 +126,40 @@ int ingresarValidarNombre(char cadena[],int tamMin ,int tamMax, char msj[], char
     if(cadena != NULL && tamMin >0 && tamMax >0 && msj != NULL && msjError != NULL)
     {
         do
-        { system("cls");
+        {
+            system("cls");
+            printf("%s", msj);
+            fflush(stdin);
+            gets(aux);
+            if(strlen(aux)>tamMax || strlen(aux)<tamMin)
+            {
+                printf("%s", msjError);
+                seguir=confirmar("\nDesea ingresar nuevamente? (s o n): ");
+                retorno=0;
+            }
+            else
+            {
+                strcpy(cadena, aux);
+                seguir=0;
+                retorno=1;
+                break;
+            }
+        }
+        while(seguir==1);
+    }
+    return retorno;
+}
+
+int ingresarValidarNombre(char cadena[],int tamMin,int tamMax, char msj[])
+{
+    int retorno=0;
+    char aux[400];
+    int seguir=1;
+    if(cadena != NULL && tamMin >0 && tamMax >0 && msj != NULL )
+    {
+        do
+        {
+            system("cls");
             printf("%s", msj);
             fflush(stdin);
             gets(aux);
@@ -146,7 +176,8 @@ int ingresarValidarNombre(char cadena[],int tamMin ,int tamMax, char msj[], char
                 seguir=confirmar("\nDESEA VOLVER A INGRESAR? (S o N): ");
                 retorno=0;
             }
-            else{
+            else
+            {
                 strcpy(cadena, aux);
                 retorno=1;
                 seguir=0;
@@ -182,20 +213,118 @@ int formatearNombres(char pResultado[], char cadena1[], char cadena2 [])
     char auxNombreApellido[strlen(cadena1) + strlen(cadena2)];
     if(cadena1!=NULL && cadena2!=NULL)
     {
-       strcpy(auxNombreApellido, strlwr(cadena2));
-       strcat(auxNombreApellido, ", ");
-       strcat(auxNombreApellido, strlwr(cadena1));
-       auxNombreApellido[0]=toupper(auxNombreApellido[0]);
-       for(int i=0; i<strlen(auxNombreApellido);i++)
-       {
-           if(auxNombreApellido[i]==' ')
-           {
-              auxNombreApellido[i+1]=toupper(auxNombreApellido[i+1]);
-              break;
-           }
-       }
-       strcpy(pResultado, auxNombreApellido);
-       retorno=1;
+        strcpy(auxNombreApellido, strlwr(cadena2));
+        strcat(auxNombreApellido, ", ");
+        strcat(auxNombreApellido, strlwr(cadena1));
+        auxNombreApellido[0]=toupper(auxNombreApellido[0]);
+        for(int i=0; i<strlen(auxNombreApellido); i++)
+        {
+            if(auxNombreApellido[i]==' ')
+            {
+                auxNombreApellido[i+1]=toupper(auxNombreApellido[i+1]);
+                break;
+            }
+        }
+        strcpy(pResultado, auxNombreApellido);
+        retorno=1;
+    }
+    return retorno;
+}
+
+
+int menuIngresarTipoPasajero(char* cadena)
+{
+    int retorno=0;
+    int seguir=1;
+    if(cadena != NULL)
+    {
+        int opcion;
+        system("cls");
+        printf("tipo de pasajero\n\n");
+        printf("1. FirstClass\n");
+        printf("2. ExecutiveClass\n");
+        printf("3. EconomyClass\n\n");
+        printf("ingrese opcion: ");
+        scanf("%d",&opcion);
+        do
+        {
+            if(opcion==1)
+            {
+                strcpy(cadena,"FirstClass" );
+                retorno=1;
+                seguir=0;
+            }
+            else if(opcion==2)
+            {
+                strcpy(cadena,"ExecutiveClass" );
+                retorno=2;
+                seguir=0;
+            }
+            else if(opcion==3)
+            {
+                strcpy(cadena,"EconomyClass" );
+                retorno=3;
+                seguir=0;
+            }
+            else
+            {
+                seguir=confirmar("\nOpcion invalida, desea reingresar? (s o n): ");
+            }
+
+        }
+        while(seguir==1);
+    }
+    return retorno;
+}
+
+int menuIngresarEstadoVuelo(char* cadena)
+{
+    int retorno=0;
+    int seguir=1;
+    if(cadena != NULL)
+    {
+        int opcion;
+        system("cls");
+        printf("tipo de pasajero\n\n");
+        printf("1. Aterrizado\n");
+        printf("2. En Horario\n");
+        printf("3. En Vuelo\n");
+        printf("4. Demorado\n\n");
+        printf("ingrese opcion: ");
+        scanf("%d",&opcion);
+        do
+        {
+            if(opcion==1)
+            {
+                strcpy(cadena,"Aterrizado" );
+                retorno=1;
+                seguir=0;
+            }
+            else if(opcion==2)
+            {
+                strcpy(cadena,"En Horario" );
+                retorno=1;
+                seguir=0;
+            }
+            else if(opcion==3)
+            {
+                strcpy(cadena,"En Vuelo" );
+                retorno=1;
+                seguir=0;
+            }
+            else if(opcion==4)
+            {
+                strcpy(cadena,"Demorado" );
+                retorno=1;
+                seguir=0;
+            }
+            else
+            {
+                seguir=confirmar("\nOpcion invalida, desea reingresar? (s o n): ");
+            }
+
+        }
+        while(seguir==1);
     }
     return retorno;
 }
@@ -217,11 +346,13 @@ int ingresarValidarCaracter(char msj[], char msjError[], char rangMin, char rang
                 printf("%s\n", msjError);
                 seguir=confirmar("intentar nuevamente? (s o n)\n");
             }
-            else{
+            else
+            {
                 seguir=0;
                 retorno=1;
             }
-        }while(seguir);
+        }
+        while(seguir);
     }
     return retorno;
 }
@@ -242,4 +373,105 @@ int confirmar(char msj[])
         respuesta=0;
     }
     return respuesta;
+}
+
+
+
+int ingresarValidarCadenaFloat(char cadena[],int tamMin,int tamMax, char msj[])
+{
+    int retorno=0;
+    char aux[400];
+    int seguir=1;
+    int tieneLetras=0;
+    if(cadena != NULL && tamMin >0 && tamMax >0 && msj != NULL)
+    {
+        do
+        {
+            system("cls");
+            printf("%s", msj);
+            fflush(stdin);
+            gets(aux);
+            for(int i =0; i <strlen(aux); i++ )
+            {
+                if(aux[i]==',' || isalpha(aux[i])!=0)
+                {
+                    tieneLetras=1;
+                    printf("flag contiene letras?: %d, isAlpha de aux[%d],  caracter: %c\n", tieneLetras, i, aux[i]);
+                    break;
+                }
+            }
+            if(tieneLetras==1 || strlen(aux)>tamMax || strlen(aux)<tamMin)
+            {
+                system("cls");
+                printf("\nError, Solo se admiten valores numericos");
+                seguir=confirmar("\nIngresar nuevamente? (s o n): ");
+                retorno=0;
+            }
+            else
+            {
+                strcpy(cadena, aux);
+                retorno=1;
+                seguir=0;
+                break;
+            }
+        }
+        while(seguir==1);
+    }
+    return retorno;
+}
+
+
+
+int ingresarValidarCadenaInt(char cadena[],int tamMin,int tamMax, char msj[])
+{
+    int retorno=0;
+    char aux[400];
+    int seguir=1;
+    int tieneLetras=0;
+    if(cadena != NULL && tamMin >0 && tamMax >0 && msj != NULL)
+    {
+        do
+        {
+            system("cls");
+            printf("%s", msj);
+            fflush(stdin);
+            gets(aux);
+            for(int i =0; i <strlen(aux); i++ )
+            {
+                if(aux[i]==',' || aux[i] =='.'|| isalpha(aux[i])!=0)
+                {
+                    tieneLetras=1;
+                    break;
+                }
+            }
+            if(tieneLetras==1 || strlen(aux)>tamMax || strlen(aux)<tamMin)
+            {
+                system("cls");
+                printf("\nError, Solo se admiten valores numericos sin decimales");
+                seguir=confirmar("\nIngresar nuevamente? (s o n): ");
+                retorno=0;
+            }
+            else
+            {
+                strcpy(cadena, aux);
+                retorno=1;
+                seguir=0;
+                break;
+            }
+        }
+        while(seguir==1);
+    }
+    return retorno;
+}
+
+int ingresarIntDevCad(char* cadena, LinkedList* pArrayListPassenger)
+{
+    int retorno=0;
+    int id;
+    if(cadena != NULL)
+    {
+        id = (ll_len(pArrayListPassenger)+1);
+        itoa(id, cadena, 10);
+    }
+    return retorno;
 }

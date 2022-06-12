@@ -9,6 +9,26 @@
 #define INPUTS_H_
 
 
+/** \brief muestra menu de edicion de pasajeros
+ *
+ * \return int retorna la opcion seleccionada
+ *
+ */
+int menuEditPassenger();
+
+/** \brief muestra menu
+ *
+ * \return retorna la opcion seleccionada
+ *
+ */
+int menu();
+/** \brief muestra menu de opciones y pide el ingreso de un numero
+ *
+ * \return int retorna opcion seleccionada
+ *
+ */
+int incrementarId();
+
 /** \brief da formato y concatena Nombre y apellido
  *
  * \param pResultado[] cadena de caracteres resultante
@@ -35,7 +55,7 @@ int mostrarMenuPrincipal();
  * \return int retorna (-1) si se ingreso un caracter o un numero negativo, 0 si se ingreso 0, 1 si la funcion concluyo satisfactoriamente
  *
  */
-int ingresarFloat(float *pFloat, char msj [], char msjError[], int intentos);
+int ingresarFloat(float *pFloat, char msj []);
 
 
 /** \brief pide un numero entero validando previamente su tipo de dato y si es un valor positivo
@@ -43,23 +63,12 @@ int ingresarFloat(float *pFloat, char msj [], char msjError[], int intentos);
  * \param pInt int* variable que guarda el entero resultante
  * \param [] char msj mensaje de pedido de entero
  * \param msjError[] char mensaje de error
- * \param intentos int cantidad de intentos para ingresar
+ * \param intentos int cantidad de intentos paraC:\Users\fedec\OneDrive\Desktop\LABO\Munoz.Federico.P1.Lab1.1G\TP_[3]\Passenger.c ingresar
  * \return int retorna (-1) si se ingreso un caracter o un numero negativo, 0 si se ingreso 0, 1 si la funcion concluyo satisfactoriamente
  *
  */
 int ingresarInt(int *pInt, char msj [], char msjError[], int intentos);
 
-/** \brief pide cadena de caracteres validando previamente su tamaño
- *
- * \param cadena[] char variable q guarda la cadena resultante
- * \param tamMin int tamaño minimo de la cadena
- * \param tamMax int tamaño maximo de cadena
- * \param msj[] char msj de pedido de cadena
- * \param msjError[] char mensaje de error
- * \param intentos int cantdad de intentos para ingresar
- * \return int 1 si la funcion concluye satisfactoriamente, de lo contrario retorna 0
- *
- */
 /** \brief ingresa y valida el tamaño de una cadena de caracteres
  *
  * \param cadena[] char cadena
@@ -71,7 +80,7 @@ int ingresarInt(int *pInt, char msj [], char msjError[], int intentos);
  * \return int retorna 1 si se valido o 0 si no se valido
  *
  */
-int ingresarValidarCadena(char cadena[],int tamMin,int tamMax, char msj[], char msjError[], int intentos);
+int ingresarValidarCadena(char cadena[],int tamMin,int tamMax, char msj[], char msjError[]);
 
 /** \brief valida extencion de cadena y que no contenga valores numericos
  *
@@ -84,7 +93,7 @@ int ingresarValidarCadena(char cadena[],int tamMin,int tamMax, char msj[], char 
  * \return int 1 si concluye satisfactoriamente.
  *
  */
-int ingresarValidarNombre(char cadena[],int tamMin,int tamMax, char msj[], char msjError[]);
+int ingresarValidarNombre(char cadena[],int tamMin,int tamMax, char msj[]);
 
 /** \brief pide ingreso y valida tamaño minimo y maximo permitido de una cadena de caracteres
  *
@@ -97,13 +106,56 @@ int ingresarValidarNombre(char cadena[],int tamMin,int tamMax, char msj[], char 
  */
 int ingresarValidarCaracter(char msj[], char msjError[], char rangMin, char rangMax);
 
-/** \brief valida si la cadena de caracteres contiene solo caracteres alfabeticos
+
+/** \brief muestra menu para selccionar estado de vuelo
+ *
+ * \param cadena char*
+ * \return int devuelve la opcion elegida
+ *
+ */
+int menuIngresarEstadoVuelo(char* cadena);
+
+
+/** \brief muestra menu para selccionar tipo pasajero
+ *
+ * \param cadena char*
+ * \return int devuelve la opcion elegida
+ *
+ */
+int menuIngresarTipoPasajero(char* cadena);
+
+
+/** \brief valida q la cadena sea solo de carateres alfabeticos
  *
  * \param cadena[] char
- * \return int 1 si solo tiene letras, 0 si encuentra caracteres numericos
+ * \return int
  *
  */
 int validarLetras(char cadena[]);
+
+
+/** \brief pide ingrear y valida la cadena de valores numericos enteros
+ *
+ * \param cadena[] char cadena resultante
+ * \param tamMin int tamaño minimo
+ * \param tamMax int tamaño maximo
+ * \param msj[] char msj
+ * \return int retorna 1 si todo concluye satisfactoriamente
+ *
+ */
+int ingresarValidarCadenaInt(char cadena[],int tamMin ,int tamMax, char msj[]);
+
+
+/** \brief pide y valida una cadena de caracteres de solo valores numericos
+ *
+ * \param cadena[] char
+ * \param tamMin int
+ * \param tamMax int
+ * \param msj[] char
+ * \return int
+ *
+ */
+int ingresarValidarCadenaFloat(char cadena[],int tamMin ,int tamMax, char msj[]);
 
 /** \brief confirma un reingreso de datos
  *
@@ -112,6 +164,5 @@ int validarLetras(char cadena[]);
  *
  */
 int confirmar(char msj[]);
-
 
 #endif /* INPUTS_H_ */
