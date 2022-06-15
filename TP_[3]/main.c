@@ -43,7 +43,11 @@ int main() {
 			}
 			break;
 		case 3:
-			controller_addPassenger(listaPasajeros);
+            if(controller_addPassenger(listaPasajeros))
+            {
+                printf("\nALTA DE PASAJERO EXITOSA!!\n");
+                system("pause");
+            }
 			break;
 		case 4:
 			if (ll_len(listaPasajeros) > 0) {
