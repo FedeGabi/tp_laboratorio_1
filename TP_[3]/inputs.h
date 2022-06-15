@@ -9,6 +9,13 @@
 #define INPUTS_H_
 
 
+
+/** \brief menu ordenamiento
+ *
+ * \return int retorna la opcion seleccionada
+ *
+ */
+int menuOrdenamiento();
 /** \brief muestra menu de edicion de pasajeros
  *
  * \return int retorna la opcion seleccionada

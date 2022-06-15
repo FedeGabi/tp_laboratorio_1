@@ -99,7 +99,7 @@ int controller_addPassenger(LinkedList* pArrayListPassenger)
                     Passenger_setCodigoVuelo(pasajero, codigoVuelo) &&
                     Passenger_setEstadoVuelo(pasajero, estadoVuelo)))
             {
-                idNext=controller_mayorId();
+                idNext=controller_mayorId();  // genero el ingremento del ID
                 Passenger_setId(pasajero, (idNext+1));
                 ll_add(pArrayListPassenger, pasajero);
                 controller_saveAsText("idNext.csv", pArrayListPassenger); // guardo la nueva cantidad de IDs en el archivo dedicado
@@ -329,9 +329,50 @@ int controller_ListPassenger(LinkedList* pArrayListPassenger)
 int controller_sortPassenger(LinkedList* pArrayListPassenger)
 {
     int retorno=0;
+    int seguir=0;
     if(pArrayListPassenger)
     {
-        ll_sort(pArrayListPassenger, passengerSortPrecio, 0);
+        do
+        {
+            switch(menuOrdenamiento())
+            {
+            case 1:
+            	printf("\nOrdenando, aguarde unos segundos...\n");
+                ll_sort(pArrayListPassenger, passengerSortId,1);
+                break;
+            case 2:
+            	printf("\nOrdenando, aguarde unos segundos...\n");
+                ll_sort(pArrayListPassenger, passengerSortNombre,1);
+                break;
+            case 3:
+            	printf("\nOrdenando, aguarde unos segundos...\n");
+                ll_sort(pArrayListPassenger, passengerSortApellido,1);
+                break;
+            case 4:
+            	printf("\nOrdenando, aguarde unos segundos...\n");
+                ll_sort(pArrayListPassenger, passengerSortPrecio,1);
+                break;
+            case 5:
+            	printf("\nOrdenando, aguarde unos segundos...\n");
+                ll_sort(pArrayListPassenger, passengerSortCodigoVuelo,1);
+                break;
+            case 6:
+            	printf("\nOrdenando, aguarde unos segundos...\n");
+                ll_sort(pArrayListPassenger, passengerSortTipoPasajero,1);
+                break;
+            case 7:
+            	printf("\nOrdenando, aguarde unos segundos...\n");
+                ll_sort(pArrayListPassenger, passengerSortEstadoVuelo,1);
+                break;
+            case 8:
+                seguir=0;
+                break;
+            default:
+                seguir=confirmar("\nOpcion invalida. Desea reingresar? (s o n): ");
+                break;
+            }
+        }while(seguir==1);
+        controller_ListPassenger(pArrayListPassenger);
         retorno=1;
     }
     return retorno;
@@ -402,16 +443,21 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListPassenger)
 
 
 
+/** \brief devuelve el id mas grande de un archivo.csv
+ *
+ * \return int retorna el valor ID mas alto
+ *
+ */
 int controller_mayorId()
 {
     int cant=0;
     int maxID=0;
     char buffer[7][100];
     Passenger* pasajero = Passenger_new();
-    FILE* pFile = fopen("idNext.csv", "r"); // abro modo lectura el archivo dedicado a guardar los IDs
+    FILE* pFile = fopen("idNext.csv", "r"); // abro modo lectura el archivo dedicado q contiene los IDs
     if(pFile==NULL)
     {
-        printf("\n[error 1111]No se pudo reservar memoria");
+        printf("\nNo se pudo reservar memoria");
         exit(1);
     }
     cant = fscanf(pFile, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",
@@ -438,6 +484,7 @@ int controller_mayorId()
             }
         }
     }
+    pasajero=NULL;
     fclose(pFile);
     return maxID; //retorno el valor del id mas alto
 }

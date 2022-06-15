@@ -33,6 +33,7 @@ int main()
         printf("NO SE PUDO CONSEGUIR MEMORIA");
         exit(1);
     }
+
     do
     {
         switch(menu())
@@ -93,6 +94,7 @@ int main()
             else
             {
                 printf("AUN NO SE CARGO UN ARCHIVO\n");
+                system("pause");
             }
             break;
         case 8:
@@ -103,6 +105,7 @@ int main()
             else
             {
                 printf("AUN NO SE CARGO UN ARCHIVO\n");
+                system("pause");
             }
             break;
         case 9:
@@ -113,6 +116,7 @@ int main()
             else
             {
                 printf("AUN NO SE CARGO UN ARCHIVO\n");
+                system("pause");
             }
             break;
         case 10:
@@ -127,7 +131,7 @@ int main()
             }
             break;
         default:
-            printf("\nOPCION IVALIDA");
+            printf("\nOPCION INVALIDA");
             system("pause");
             break;
         }

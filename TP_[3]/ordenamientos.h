@@ -16,5 +16,9 @@
 int passengerSortNombre(void* a, void* b);
 int passengerSortApellido(void* a, void* b);
 int passengerSortPrecio(void* a, void* b);
+int passengerSortCodigoVuelo(void* a, void* b);
+int passengerSortId(void* a, void* b);
+int passengerSortEstadoVuelo(void* a, void* b);
+int passengerSortTipoPasajero(void* a, void* b);
 
 #endif /* ORDENAMIENTOS_H_ */

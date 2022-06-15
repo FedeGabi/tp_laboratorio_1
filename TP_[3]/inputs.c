@@ -46,6 +46,23 @@ int menuEditPassenger()
     return opcion;
 }
 
+
+int menuOrdenamiento()
+{
+    system("cls");
+    int opcion;
+    printf("1. Ordenar por ID\n");
+    printf("2. Ordenar por nombre\n");
+    printf("3. Ordenar por Apellido\n");
+    printf("4. Ordenar por Precio\n");
+    printf("5. Ordenar por Codigo de vuelo\n");
+    printf("6. Ordenar por Tipo de Pasajero\n");
+    printf("7. Ordenar por Estado de Vuelo \n");
+    printf("8. salir\n\n");
+    scanf("%d", &opcion);
+    return opcion;
+}
+
 int ingresarFloat(float *pFloat, char msj [])
 {
     int retorno = -1;
