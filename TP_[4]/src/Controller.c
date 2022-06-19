@@ -402,7 +402,7 @@ int controller_saveAsBinary(char *path, LinkedList *pArrayListPassenger) {
 	return retorno;
 }
 
-//////////////     CONTROLLER SAVES IDs        ////////////
+                        //////////////     CONTROLLER SAVES IDs        ////////////
 
 /** \brief devuelve el id mas grande de un archivo.csv
  *
@@ -437,12 +437,18 @@ int controller_mayorId() {
 			}
 		}
 	}
+
 	pasajero = NULL;
 	fclose(pFile);
 	return maxID; //retorno el valor del id mas alto
+
+
 }
 
-/////////////      filtrar      /////////////
+                                    /////////////      filtrar      /////////////
+
+
+
 
 LinkedList* controllerFilter(LinkedList *pArrayListPassenger) {
 	int seguir = 1;
@@ -486,7 +492,6 @@ LinkedList* controllerFilter(LinkedList *pArrayListPassenger) {
 				break;
 			}
 		} while (seguir == 1);
-		printf("\n******** NUEVA LISTA ************\n");
 		controller_ListPassenger(nuevaLista);
 	}
 	return nuevaLista;

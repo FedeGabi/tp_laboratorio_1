@@ -98,8 +98,8 @@ int main() {
 			if (ll_len(listaPasajeros) > 0) {
 				filterList=controller_sublist(listaPasajeros);
 			}else {
-				printf("AUN NO SE CARGO ELEMENTOS EN EL ARRAY\n");
-				system("PAUSE");
+				printf("AUN NO SE CARGO ELEMENTOS EN EL ARRAY PRINCIPAL\n");
+				system("pause");
 			}
 			break;
 		case 11:
@@ -107,8 +107,8 @@ int main() {
 				filterList=controllerFilter(listaPasajeros);
 
 			}else {
-				printf("AUN NO SE CARGO UN ARCHIVO\n");
-				system("PAUSE");
+				printf("AUN NO SE CARGO EL ARCHIVO PRINCIPAL\n");
+				system("pause");
 			}
 			break;
 		case 12:
@@ -118,8 +118,8 @@ int main() {
 				system("PAUSE");
 
 			}else {
-				printf("AUN NO SE CARGO ELEMENTOS EN EL ARRAY\n");
-				system("PAUSE");
+				printf("AUN NO SE CARGO ELEMENTOS EN EL ARRAY PRINCIPAL\n");
+				system("pause");
 			}
 			break;
 		case 13:
