@@ -24,7 +24,8 @@ int mostrarMenuPrincipal()
     printf("1. ALTAS\n");
     printf("2. MODIFICACION\n");
     printf("3. BAJA\n");
-    printf("4. INFORMAR\n\n");
+    printf("4. INFORMAR\n");
+    printf("5. CARGA FORZADA\n\n");
     printf("INGRESE OPCION: ");
     scanf("%d", &opcion);
     fflush(stdin);

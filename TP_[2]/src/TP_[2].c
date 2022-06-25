@@ -12,13 +12,14 @@
 
 int main()
 {
+	setbuf(stdout, NULL);
     char seguir='s';
     int id;
     Passenger listPassenger[TAM_PAS];
     initPassengers(listPassenger,TAM_PAS);
     eTypePassenger listaTipos[TAM_TYPE];
     eStatusFlight listStatus[TAM_STATUS];
-    hardcodearPassengers(listPassenger,TAM_PAS,20);
+    hardcodearPassengers(listPassenger,TAM_PAS,10);
     hardcodearTypePassenger(listaTipos, TAM_TYPE);
     hardcodearStatus(listStatus, TAM_STATUS);
     do
@@ -60,6 +61,12 @@ int main()
         case 4:
             ejecutarOrdenamientos(listPassenger, TAM_PAS, listaTipos, TAM_TYPE, listStatus, TAM_STATUS);
             break;
+        case 5:
+            	hardcodearPassengers(listPassenger,TAM_PAS,20);
+            	printPassengersExtended(listPassenger, TAM_PAS, listaTipos, TAM_TYPE, listStatus, TAM_STATUS);
+            	informarPromedios(listPassenger, TAM_PAS, listaTipos, TAM_TYPE, listStatus, TAM_STATUS);
+            	system("pause");
+            break;
         default:
             system("cls");
             printf("\nOPCION INVALIDA\n");
@@ -70,5 +77,5 @@ int main()
     while(seguir == 's');
 
 
-    return 0;
+    return EXIT_SUCCESS;
 }
