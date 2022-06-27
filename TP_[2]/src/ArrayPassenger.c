@@ -470,7 +470,7 @@ int informarPromedios(Passenger list[], int lenth, eTypePassenger type[], int ta
                     cantidadPassengerMayorPromedio++;
                 }
             }
-            system("cls");
+            //system("cls");
             printf("\n");
             printf("TOTAL DE PRECIOS: $%.2f \n",totalPrecios );
             printf("\n");
