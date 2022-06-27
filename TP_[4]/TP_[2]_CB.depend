@@ -1,0 +1,88 @@
+# depslib dependency file v1.0
+1656272082 source:c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\filter.c
+	"filter.h"
+
+1656194100 c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\filter.h
+	<stdio.h>
+	<stdlib.h>
+	"inputs.h"
+	"Passenger.h"
+
+1656271873 c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\inputs.h
+
+1656203211 c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\passenger.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"LinkedList.h"
+
+1656200175 c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\linkedlist.h
+
+1656346636 source:c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\inputs.c
+	"inputs.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"LinkedList.h"
+
+1656345663 source:c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"inputs.h"
+	"Passenger.h"
+	"Parser.h"
+	"Controller.h"
+	"filter.h"
+	"LinkedList.h"
+	"ordenamientos.h"
+
+1656204109 c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\controller.h
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Passenger.h"
+	"parser.h"
+	"LinkedLIst.h"
+
+1656341818 source:c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1656203233 source:c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Passenger.h"
+	"Parser.h"
+
+1656193168 c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\parser.h
+
+1656346744 source:c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Passenger.h"
+	"Controller.h"
+	"inputs.h"
+
+1656269785 source:c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\passenger.c
+	"Passenger.h"
+	"LinkedList.h"
+	"inputs.h"
+	<stdio.h>
+	<stdlib.h>
+
+1656273500 source:c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\ordenamientos.c
+	"ordenamientos.h"
+
+1656204352 c:\users\fedec\onedrive\desktop\labo\munoz.federico.p1.lab1.1g\tp_[2]_cb\ordenamientos.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"Passenger.h"
+
